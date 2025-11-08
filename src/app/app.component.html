@@ -1,0 +1,41 @@
+<div class="container">
+  <header>
+    <h1>{{ title }}</h1>
+    <p>Projeto da Disciplina: DevOps na Prática</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Informações do Projeto</h2>
+      <p><strong>Versão:</strong> 1.0.0 - Fase 1</p>
+      <p><strong>Ambiente:</strong> Desenvolvimento</p>
+      <p><strong>Build:</strong> {{ getBuildInfo() }}</p>
+      <div class="image">
+        <img src="devops.png" alt="DevOps Workflow" />
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Entregáveis da Fase 1</h2>
+      <div class="item">
+        <h3>Documentação de Planejamento</h3>
+        <p>Template com descrição, objetivos e planos</p>
+      </div>
+      <div class="item">
+        <h3>Pipeline CI Configurado</h3>
+        <p>GitHub Actions funcional e testado</p>
+      </div>
+      <div class="item">
+        <h3>Scripts IaC</h3>
+        <p>Terraform/CloudFormation implementados</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      &copy; 2025 - PUCRS Análise e Desenvolvimento de Sistema: FullStack e
+      Mobile
+    </p>
+  </footer>
+</div>

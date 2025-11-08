@@ -1,0 +1,106 @@
+$primary-color: #667eea;
+$secondary-color: #764ba2;
+$background-light: #f8f9fa;
+$text-primary: #333;
+$text-secondary: #666;
+$border-light: #eee;
+$shadow: rgba(0, 0, 0, 0.1);
+
+@mixin card-shadow {
+  box-shadow: 0 2px 10px $shadow;
+}
+
+@mixin gradient-background {
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px;
+  @include gradient-background;
+  color: white;
+  border-radius: 10px;
+
+  h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+
+  p {
+    margin: 10px 0 0 0;
+    opacity: 0.9;
+  }
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: $background-light;
+  padding: 25px;
+  border-radius: 8px;
+  border-left: 4px solid $primary-color;
+  @include card-shadow;
+
+  h2 {
+    margin-top: 0;
+    color: $text-primary;
+  }
+
+  .image {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
+
+  .item {
+    margin: 15px 0;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    border-left: 3px solid $primary-color;
+
+    h3 {
+      margin-top: 0;
+      color: $text-primary;
+    }
+
+    p {
+      margin: 5px 0 0 0;
+      font-size: 0.9rem;
+      color: $text-secondary;
+    }
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid $border-light;
+  color: $text-secondary;
+}
