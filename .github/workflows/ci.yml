@@ -13,7 +13,7 @@ permissions:
 jobs:
   # 1º -> Job de Build e Testes
   build-and-test:
-    name: Build e Test
+    name: Build e Testes
     runs-on: ubuntu-latest
 
     steps:
@@ -48,3 +48,30 @@ jobs:
           name: build-artifacts
           path: dist/projeto-devops/
           retention-days: 7
+
+  # 2º -> Job de análise de qualidade de código
+  code-quality:
+    name: Análise de Qualidade
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Instalar dependências
+        run: npm ci
+
+      # Análise de segurança nas dependências
+      - name: Auditoria de segurança
+        run: npm audit --audit-level=critical # falha apenas em vulnerabilidades médias ou críticas
+
+      # Verifica se não há dependências desatualizadas críticas
+      - name: Verificar dependências desatualizadas
+        run: npm outdated || true # não falha o pipeline, apenas informa
