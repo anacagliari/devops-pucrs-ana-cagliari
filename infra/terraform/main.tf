@@ -41,7 +41,7 @@ resource "aws_security_group" "web_sg" {
   }
 
   tags = {
-    Name = "projeto-devops-sg"
+    Name = "projeto-devops-ana-cagliari"
   }
 }
 
