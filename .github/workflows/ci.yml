@@ -1,0 +1,50 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main ]  # Executa ao fazer push para main
+  pull_request:
+    branches: [ main ]  # Executa ao abrir PR para main
+
+# Define as permissões necessárias
+permissions:
+  contents: read
+
+jobs:
+  # 1º -> Job de Build e Testes
+  build-and-test:
+    name: Build e Test
+    runs-on: ubuntu-latest
+
+    steps:
+      # Passo 1: Fazer checkout do código
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      # Passo 2: Configurar Node.js
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      # Passo 3: Instalar dependências
+      - name: Instalar dependências
+        run: npm ci
+
+      # Passo 4: Executar testes unitários
+      - name: Executar testes
+        run: npm run test -- --watch=false --browsers=ChromeHeadless
+
+      # Passo 5: Build de produção
+      - name: Build da aplicação
+        run: npm run build -- --configuration production
+
+      # Passo 6: Upload dos artefatos de build, mantendo por 7 dias após o build
+      - name: Upload do build
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: dist/projeto-devops/
+          retention-days: 7
