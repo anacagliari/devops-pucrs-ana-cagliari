@@ -75,3 +75,18 @@ jobs:
       # Verifica se não há dependências desatualizadas críticas
       - name: Verificar dependências desatualizadas
         run: npm outdated || true # não falha o pipeline, apenas informa
+
+  # 3º -> Job de notificação de sucesso
+  notify-success:
+    name: Notificar Sucesso
+    runs-on: ubuntu-latest
+    needs: [build-and-test, code-quality]  # Só roda se os jobs anteriores passarem
+    if: success()
+
+    steps:
+      # Mensagem de sucesso
+      - name: Pipeline concluído com sucesso
+        run: |
+          echo "Pipeline CI executado com sucesso!"
+          echo "Build gerado e testado"
+          echo "Análise de segurança concluída"
