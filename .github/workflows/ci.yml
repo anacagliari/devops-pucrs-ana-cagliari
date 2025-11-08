@@ -31,7 +31,7 @@ jobs:
 
       # Passo 3: Instalar dependências
       - name: Instalar dependências
-        run: npm ci
+        run: npm install
 
       # Passo 4: Executar testes unitários
       - name: Executar testes
