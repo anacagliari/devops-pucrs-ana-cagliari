@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
@@ -115,8 +115,6 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-
 
   # 4º -> Job de Provisionamento com Terraform
   terraform:
@@ -247,7 +245,6 @@ jobs:
           sleep 10
           curl -f http://${{ needs.terraform.outputs.instance_ip }} || exit 1
 
-
   # 6º -> Job de notificação de sucesso
   notify-success:
     name: Notificar Sucesso
@@ -259,10 +256,10 @@ jobs:
       # Mensagem de sucesso
       - name: Pipeline concluído com sucesso
         run: |
-          echo "✅ Pipeline CI/CD executado com sucesso!"
-          echo "📦 Build gerado e testado"
-          echo "🔒 Análise de segurança concluída"
-          echo "🐳 Imagem Docker criada e publicada"
-          echo "☁️ Infraestrutura provisionada"
-          echo "🚀 Deploy realizado com sucesso"
-          echo "🌐 Aplicação disponível em: http://${{ needs.terraform.outputs.instance_ip }}"
+          echo "Pipeline CI/CD executado com sucesso!"
+          echo "Build gerado e testado"
+          echo "Análise de segurança concluída"
+          echo "Imagem Docker criada e publicada"
+          echo "Infraestrutura provisionada"
+          echo "Deploy realizado com sucesso"
+          echo "Aplicação disponível em: http://${{ needs.terraform.outputs.instance_ip }}"
