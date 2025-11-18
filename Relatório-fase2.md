@@ -221,8 +221,6 @@ O projeto implementou com sucesso uma pipeline completa de CI/CD, incluindo:
 
 ---
 
----
-
 **Autor:** Ana Caroline Cagliari Cappellari  
 **Disciplina:** DevOps na Prática  
 **Instituição:** PUCRS
