@@ -184,12 +184,3 @@ sequenceDiagram
 │ 10min ─── Pipeline Complete                       │
 └───────────────────────────────────────────────────┘
 ```
-
----
-
-**Legenda:**
-- 📦 Artefato gerado
-- ✅ Checkpoint de sucesso
-- ❌ Ponto de falha possível
-- 🚀 Deploy para produção
-- 🔄 Processo automatizado
