@@ -59,21 +59,24 @@ resource "aws_instance" "web_server" {
               # Atualiza o sistema
               yum update -y
 
-              # Instala nginx
-              amazon-linux-extras install nginx1 -y
+              # Instala Docker
+              yum install docker -y
 
-              # Inicia o nginx
-              systemctl start nginx
-              systemctl enable nginx
+              # Inicia Docker
+              systemctl start docker
+              systemctl enable docker
 
-              # Cria diretório para a aplicação
-              mkdir -p /usr/share/nginx/html/app
+              # Adiciona ec2-user ao grupo docker
+              usermod -aG docker ec2-user
 
-              # Configura permissões
-              chmod 755 /usr/share/nginx/html/app
+              # Instala docker-compose
+              curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+              chmod +x /usr/local/bin/docker-compose
               EOF
 
   tags = {
-    Name = "projeto-devops-ana-cagliari"
+    Name    = "projeto-devops-ana-cagliari"
+    Project = "DevOps-PUCRS"
+    Owner   = "Ana Caroline Cagliari Cappellari"
   }
 }
