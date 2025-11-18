@@ -2,40 +2,128 @@
   <header>
     <h1>{{ title }}</h1>
     <p>Projeto da Disciplina: DevOps na Prática</p>
+    <p><strong>Fase 2:</strong> Entrega Contínua, Monitoramento e Segurança</p>
   </header>
 
   <main>
     <section class="card">
       <h2>Informações do Projeto</h2>
-      <p><strong>Versão:</strong> 1.0.0 - Fase 1</p>
-      <p><strong>Ambiente:</strong> Desenvolvimento</p>
+      <p><strong>Versão:</strong> 2.0.0 - Fase 2</p>
+      <p><strong>Ambiente:</strong> Produção</p>
       <p><strong>Build:</strong> {{ getBuildInfo() }}</p>
+      <p><strong>Status:</strong>Pipeline CI/CD Ativo</p>
       <div class="image">
         <img src="devops.png" alt="DevOps Workflow" />
       </div>
     </section>
 
     <section class="card">
-      <h2>Entregáveis da Fase 1</h2>
+      <h2>1. Pipeline de Entrega Contínua</h2>
       <div class="item">
-        <h3>Documentação de Planejamento</h3>
-        <p>Template com descrição, objetivos e planos</p>
+        <h3>CI/CD Completo</h3>
+        <p>Pipeline expandido com integração e entrega contínua automatizada via GitHub Actions</p>
       </div>
       <div class="item">
-        <h3>Pipeline CI Configurado</h3>
-        <p>GitHub Actions funcional e testado</p>
+        <h3>Deploy Automatizado</h3>
+        <p>Deploy automático para AWS EC2 após validação de testes e qualidade de código</p>
       </div>
       <div class="item">
-        <h3>Scripts IaC</h3>
-        <p>Terraform/CloudFormation implementados</p>
+        <h3>Validação de Qualidade</h3>
+        <p>Análise de segurança e auditoria de dependências integrada ao pipeline</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. Containerização e Orquestração</h2>
+      <div class="item">
+        <h3>Docker Multi-stage Build</h3>
+        <p>Aplicação containerizada com Node.js e Nginx em arquitetura multi-stage</p>
+      </div>
+      <div class="item">
+        <h3>Docker Hub Registry</h3>
+        <p>Imagens versionadas e publicadas automaticamente no Docker Hub</p>
+      </div>
+      <div class="item">
+        <h3>Scripts de Deploy</h3>
+        <p>Automação de deploy com pull e execução de containers na infraestrutura EC2</p>
+      </div>
+      <div class="item">
+        <h3>Docker Compose</h3>
+        <p>Orquestração local da aplicação com configuração declarativa</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. Infraestrutura como Código</h2>
+      <div class="item">
+        <h3>Terraform AWS</h3>
+        <p>Provisionamento automatizado de EC2, Security Groups e recursos de rede</p>
+      </div>
+      <div class="item">
+        <h3>Gerenciamento de Segurança</h3>
+        <p>Configuração de regras de firewall e acesso SSH via IaC</p>
+      </div>
+      <div class="item">
+        <h3>Outputs Dinâmicos</h3>
+        <p>Captura automática de IPs e IDs para integração com pipeline de deploy</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4. Tecnologias Utilizadas</h2>
+      <div class="item">
+        <h3>Frontend</h3>
+        <p>Angular 18 com TypeScript e SCSS</p>
+      </div>
+      <div class="item">
+        <h3>CI/CD</h3>
+        <p>GitHub Actions com jobs paralelos e dependências</p>
+      </div>
+      <div class="item">
+        <h3>Containerização</h3>
+        <p>Docker com Nginx Alpine e Node.js 22</p>
+      </div>
+      <div class="item">
+        <h3>Infraestrutura</h3>
+        <p>Terraform + AWS (EC2, VPC, Security Groups)</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. Próximas Melhorias</h2>
+      <div class="item">
+        <h3>Monitoramento</h3>
+        <p>Implementação de Prometheus e Grafana para métricas em tempo real</p>
+      </div>
+      <div class="item">
+        <h3>Logging Centralizado</h3>
+        <p>Configuração de ELK Stack (Elasticsearch, Logstash, Kibana)</p>
+      </div>
+      <div class="item">
+        <h3>Security Scanning</h3>
+        <p>Integração de ferramentas como Snyk e OWASP Dependency-Check</p>
+      </div>
+      <div class="item">
+        <h3>Testes E2E</h3>
+        <p>Automação de testes end-to-end com Cypress ou Playwright</p>
+      </div>
+      <div class="item">
+        <h3>Rollback Automático</h3>
+        <p>Estratégia de rollback em caso de falhas no deploy</p>
+      </div>
+      <div class="item">
+        <h3>Blue-Green Deployment</h3>
+        <p>Deploy sem downtime com ambientes paralelos</p>
       </div>
     </section>
   </main>
 
   <footer>
     <p>
-      &copy; 2025 - PUCRS Análise e Desenvolvimento de Sistema: FullStack e
-      Mobile
+      &copy; 2025 - PUCRS Análise e Desenvolvimento de Sistema: FullStack e Mobile
+    </p>
+    <p>
+      <strong>Projeto DevOps:</strong> Pipeline CI/CD | Docker | Terraform | AWS EC2
     </p>
   </footer>
 </div>

@@ -12,6 +12,16 @@ export class AppComponent {
 
   getBuildInfo(): string {
     const now = new Date();
-    return `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+    const buildDate = now.toLocaleDateString('pt-BR');
+    const buildTime = now.toLocaleTimeString('pt-BR');
+    return `${buildDate} às ${buildTime}`;
+  }
+
+  getEnvironment(): string {
+    return 'Produção - AWS EC2';
+  }
+
+  getPipelineStatus(): string {
+    return 'Ativo e Funcionando';
   }
 }
